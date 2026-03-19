@@ -1,0 +1,225 @@
+/* libarary Font Size */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Arial", sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+/* Header Start */
+
+header {
+  width: 97%;
+  height: 70px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .content-left img {
+  max-width: 150px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+header .content-left img:hover {
+  transform: scale(1.1);
+}
+
+header .content-left i {
+  font-size: 35px;
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+header .content-center {
+  display: flex;
+  align-items: center;
+  margin-left: -9%;
+}
+
+header .content-center form {
+  display: flex;
+  width: 628px;
+  height: 40px;
+}
+
+header .content-center input {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border: 1.5px solid #c9c8c8;
+  font-weight: 550;
+  font-size: 16px;
+  outline: none;
+}
+
+header .content-center button {
+  border: none;
+  width: 60px;
+  border-radius: 0 5px 5px 0;
+  background-color: #ddd;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+header .content-center .mic {
+  margin-left: 25px;
+  background-color: #ddd;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding-right: 1px;
+}
+
+header .content-right a {
+  margin-left: 15px;
+  color: black;
+}
+
+header .content-right a i {
+  font-size: 30px;
+}
+
+/* Header End */
+
+/* Container Aside and Videos Start */
+
+.container-area{
+  display: flex;
+}
+
+/* Aside Start */
+
+
+
+.container-area aside{
+  width: 250px;
+  height: calc(100vh - 70px);
+  margin-top: 10px;
+  margin-bottom: 30px;
+  overflow-y: auto;
+}
+
+.container-area aside ul li{
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 13px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container-area aside ul li:hover{
+  background-color: #f1f1f1;
+}
+
+.container-area aside ul li.active{
+  background-color: #ddd;
+
+}
+
+.container-area aside ul li a{
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.container-area aside ul li a span{
+  margin-left: 30px;
+  font-weight: 600;
+}
+
+.container-area aside ul li a i{
+  font-size: 26px;
+}
+
+hr{
+  margin-top: -10px;
+  margin-bottom: 15px;
+  background-color: #ddd ;
+  height: 2px; 
+  border: none;
+}
+
+.p{
+  color: #585858;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.ul li a{
+  display: flex;
+}
+
+.ul li{
+  margin-bottom: 5px !important;
+}
+
+.ul li:hover{
+  background-color: white !important;
+}
+
+.ul li a  img{
+ width: 35px;
+ height: 35px;
+ border-radius: 50%;
+}
+
+/* Aside End */
+
+
+/* Videos Start*/
+
+
+.videos {
+  width: calc(100% - 250px); 
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;           
+  gap: 20px;                 
+  padding: 20px;
+}
+
+.video {
+  width: 320px; 
+}
+
+/* 3. الصورة جوه الفيديو */
+.videos .video img {
+  width: 100%;      
+  border-radius: 6px;
+}
+
+
+.videos .video .details .img-protiflio img{
+  max-width: 25px;
+  max-height: 25px;
+  border-radius: 50%;
+}
+
+/* Videos End */
+
+
+/* Container Aside and Videos End  */
