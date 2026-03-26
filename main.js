@@ -50,3 +50,6 @@ menue.addEventListener("click", () => {
 
 
 
+window.addEventListener("load" , () => {
+  alert("تم")
+})
