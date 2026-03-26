@@ -111,19 +111,38 @@ header .content-right a i {
 
 /* Aside Start */
 
-
-
-.container-area aside{
-  width: 265px;
-  height: calc(100vh - 70px);
-  margin-top: 10px;
-  margin-bottom: 30px;
-  overflow-y: auto;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* عشان ميبقاش فيه سكرول بالعرض */
 }
 
+.container-area aside {
+    width: 265px;
+    background-color: white;
+    
+    /* الحل الإجباري */
+    position: fixed; 
+    top: 70px; /* يبدأ من تحت الهيدر */
+    bottom: 0; /* يشد نفسه لحد آخر الشاشة تحت */
+    left: 0;
+    
+    overflow-y: auto; /* سكرول داخلي */
+    z-index: 100;
+    border-right: 1px solid #ddd; /* خط رفيع عشان يفصله عن الفيديوهات */
+}
+
+/* عشان الفيديوهات متستخباش ورا السايد بار الـ Fixed */
+
+
 .videos {
-    margin-left: 10px; 
-    transition: 0.3s;   
+    margin-left: 265px; /* نفس عرض السايد بار بالظبط */
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
 }
 
 
@@ -220,17 +239,19 @@ hr{
 
 
 .videos {
-  width: calc(108% - 250px); 
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;           
-  gap: 20px;                 
-  padding: 20px;
+    flex: 1; /* بياخد كل المساحة اللي باقية جنب السايد بار */
+    display: grid;
+    /* بيعمل أعمدة أوتوماتيك، أقل عرض للفيديو 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+    transition: 0.3s;
 }
 
 .video {
-  width: 380px; 
+    width: 100%; 
 }
+
 
 /* 3. الصورة جوه الفيديو */
 .videos .video img {
@@ -306,10 +327,7 @@ aside.active{
   overflow: hidden;
 }
 
-aside.hidden{
-  opacity: 0;
-  visibility: hidden;
-}
+
 aside.active hr{
     opacity: 0;
   visibility: hidden;
@@ -324,20 +342,72 @@ aside.active hr{
 
 /* Media Start */
 
-@media(max-width:792px){
-   aside{
-   opacity: 0; 
-    visibility: hidden;
-    transition: all 0.4s ease;
-    transform: translateX(-200px);
-   }
-   aside.blur{
+@media(max-width: 792px) {
+   aside {
+    position: fixed; 
+    top: 70px; 
+    left: 0;
+    background-color: white;
+    z-index: 10000;
+    width: 380px; 
+    transform: translateX(-100%);
     opacity: 1;
     visibility: visible;
-    transform: translateX(0);
-  }
+   }
+   
+   aside.blur {
+    transform: translateX(0); 
+    box-shadow: 10px 0 15px rgba(0,0,0,0.1); 
+   }
+
+   .videos {
+    width: 100%; 
+    margin-left: 0;
+   }
 }
 
+
+@media(max-width:1295px){
+
+ header{
+  position: relative;
+ }
+  .search{
+    display: none;
+  }
+
+header .content-center button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 23px 11px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+  }
+
+  header .content-center .mic{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+  }
+  header .content-center form {
+    display: flex;
+    width: 0px;
+    height: 40px;
+}
+aside.active + .videos {
+    margin-left: 0; 
+}
+
+
+}
 
 
 /* Media End */
