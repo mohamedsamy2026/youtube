@@ -25,3 +25,35 @@ menue.addEventListener("click", () => {
 
 
 })
+
+
+
+function checkWidthTablet(){
+  if(innerWidth <= 1315){
+    aside.classList.add("active")
+    ul.classList.add("active")
+    ul2.classList.add("active")
+        menue.innerHTML = `<span class="material-symbols-outlined">close</span>`;
+  }
+  else{
+    menue.innerHTML = `<span class="material-symbols-outlined">menue</span>`;
+    aside.classList.remove("active")
+    ul.classList.remove("active")
+    ul2.classList.remove("active")
+  }
+}
+
+checkWidthTablet()
+
+window.addEventListener("resize", checkWidthTablet);
+
+
+
+menue.addEventListener("click", () => {
+  aside.classList.toggle("blur");
+})
+
+
+
+
+

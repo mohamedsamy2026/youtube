@@ -114,7 +114,7 @@ header .content-right a i {
 
 
 .container-area aside{
-  width: 250px;
+  width: 265px;
   height: calc(100vh - 70px);
   margin-top: 10px;
   margin-bottom: 30px;
@@ -128,7 +128,7 @@ header .content-right a i {
 
 
 aside.active + .videos {
-    margin-left: 80px; 
+    margin-left: 47px; 
 }
 
 
@@ -220,7 +220,7 @@ hr{
 
 
 .videos {
-  width: calc(100% - 250px); 
+  width: calc(108% - 250px); 
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;           
@@ -293,18 +293,50 @@ display: -webkit-box;
 
 
 .ul-2.active{
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+aside{
+  transition: all 0.3s ease;
 }
 
 aside.active{
   width: 65px;
+  overflow: hidden;
+}
+
+aside.hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+aside.active hr{
+    opacity: 0;
+  visibility: hidden;
 }
 
 .ul.active{
-  display: none;
-  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
+
+
+
 /* Media Start */
+
+@media(max-width:792px){
+   aside{
+   opacity: 0; 
+    visibility: hidden;
+    transition: all 0.4s ease;
+    transform: translateX(-200px);
+   }
+   aside.blur{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
 
 
 
