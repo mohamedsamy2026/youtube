@@ -409,5 +409,62 @@ aside.active + .videos {
 
 }
 
-
 /* Media End */
+
+
+
+
+#loading-screen {
+    /* 1. التثبيت: يخلي الشاشة مغطية المتصفح كله حتى لو عملت سكرول */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 2. الخلفية: خليتها بيضاء تماماً زي يوتيوب */
+    background-color: #ffffff; 
+    
+    /* 3. التوسيط: يخلي اللودر في نص الشاشة بالظبط بالطول والعرض */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* 4. الطبقة: رقم كبير جداً عشان مفيش حاجة تظهر فوقه */
+    z-index: 999999; 
+    
+    /* 5. النعومة: عشان لما يختفي، يختفي بالتدريج (Fade Out) */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* الدائرة (السبينر) */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3; /* اللون الرمادي الفاتح للدائرة */
+    border-top: 4px solid #ff0000; /* اللون الأحمر بتاع يوتيوب من فوق */
+    border-radius: 50%; /* يخلي المربع دايرة */
+    
+    /* تشغيل الأنميشن: اسمه spin، مدته ثانية، بيلف علطول */
+    animation: spin 1s linear infinite;
+}
+
+/* تعريف حركة الدوران */
+@keyframes spin {
+    0% { transform: rotate(0deg); }   /* يبدأ من صفر */
+    100% { transform: rotate(360deg); } /* يلف لفة كاملة */
+}
+
+.loading-text {
+    margin-top: 15px;
+    font-family: sans-serif;
+    color: #606060; /* رمادي يوتيوب المشهور */
+    font-size: 14px;
+}
+
+/* كلاس الاختفاء (هيتضاف بالجافا سكريبت) */
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}

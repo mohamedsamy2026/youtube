@@ -49,7 +49,23 @@ menue.addEventListener("click", () => {
 
 
 
-
-window.addEventListener("load" , () => {
-  alert("تم")
-})
+// window.addEventListener('load' ...) 
+// معناها: "يا متصفح، استنى لما الصور والملفات والأيقونات كلها تخلص تحميل"
+window.addEventListener('load', function() {
+    
+    // 1. نمسك الديف اللي اسمه loading-screen من الـ HTML
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    // 2. نضيف له كلاس الـ fade-out (اللي إحنا لسه كاتبينه في الـ CSS فوق)
+    // ده هيخلي الشاشة تبدأ تنعم وتختفي في خلال نص ثانية
+    loadingScreen.classList.add('fade-out');
+    
+    // 3. نستخدم setTimeout عشان نمسح العنصر "تماما" من الصفحة بعد ما يختفي
+    // استنينا 500 مللي ثانية (نص ثانية) عشان ندي فرصة للأنميشن يخلص
+    setTimeout(() => {
+        loadingScreen.style.display = 'none';
+        
+        // تريكة: رجع السكرول للصفحة بعد ما اللودر يختفي
+        document.body.style.overflow = 'auto';
+    }, 500);
+});
